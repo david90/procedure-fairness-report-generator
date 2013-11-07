@@ -208,14 +208,6 @@ report_generate = (org, your_org, decision, action, product) =>
   report_name = raw_title.replace(new RegExp("__decision__","g"),decision)
   $(".report-name").html(report_name)
   
-  
-  $(".panel").slideUp();
-  $(".in-progress").fadeIn().delay(5000).fadeOut(()=>
-    $(".generated").slideDown();
-    reloadWithQueryStringVars({"org": escape(org), "your_org": escape(your_org), "decision": escape(decision), "action": escape(action), "product": escape(product)});
-  );
-
-
 
 load_from_url = () =>
   org = getUrlVar("org");
@@ -223,16 +215,15 @@ load_from_url = () =>
   decision = getUrlVar("decision");
   action = getUrlVar("action");
   product = getUrlVar("product");
-
-  console.log(org)
-  console.log(your_org)
-  console.log(decision)
-  console.log(action)
-  console.log(product)
   
   if(org.length>0 && your_org.length>0 && decision.length>0 && action.length>0 && product.length>0)
-    alert("loaded");
     report_generate(org, your_org, decision, action, product)
+    $(".panel").slideUp();
+    $(".in-progress").fadeIn().delay(5000).fadeOut(()=>
+      $(".generated").slideDown();
+    );
+
+    
 
 prepare_for_reoprt_and_generate = () =>
   org = $(".org").val()
@@ -247,7 +238,12 @@ prepare_for_reoprt_and_generate = () =>
   
   report_generate(org, your_org, decision, action, product)
     
-    
+  $(".panel").slideUp();
+  $(".in-progress").fadeIn().delay(5000).fadeOut(()=>
+    $(".generated").slideDown();
+    reloadWithQueryStringVars({"org": escape(org), "your_org": escape(your_org), "decision": escape(decision), "action": escape(action), "product": escape(product)});
+  );
+
 
 
 $('body .generate').on("click", prepare_for_reoprt_and_generate)

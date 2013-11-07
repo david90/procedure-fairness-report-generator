@@ -91,18 +91,7 @@
     res = raw_text_html.replace(new RegExp("__org__", "g"), org).replace(new RegExp("__your_org__", "g"), your_org).replace(new RegExp("__decision__", "g"), decision).replace(new RegExp("__action__", "g"), action).replace(new RegExp("__product__", "g"), product).replace(new RegExp("__date__", "g"), ShowDate(new Date()));
     $(".report-content").html(res);
     report_name = raw_title.replace(new RegExp("__decision__", "g"), decision);
-    $(".report-name").html(report_name);
-    $(".panel").slideUp();
-    return $(".in-progress").fadeIn().delay(5000).fadeOut(function() {
-      $(".generated").slideDown();
-      return reloadWithQueryStringVars({
-        "org": escape(org),
-        "your_org": escape(your_org),
-        "decision": escape(decision),
-        "action": escape(action),
-        "product": escape(product)
-      });
-    });
+    return $(".report-name").html(report_name);
   };
 
   load_from_url = function() {
@@ -112,14 +101,12 @@
     decision = getUrlVar("decision");
     action = getUrlVar("action");
     product = getUrlVar("product");
-    console.log(org);
-    console.log(your_org);
-    console.log(decision);
-    console.log(action);
-    console.log(product);
     if (org.length > 0 && your_org.length > 0 && decision.length > 0 && action.length > 0 && product.length > 0) {
-      alert("loaded");
-      return report_generate(org, your_org, decision, action, product);
+      report_generate(org, your_org, decision, action, product);
+      $(".panel").slideUp();
+      return $(".in-progress").fadeIn().delay(5000).fadeOut(function() {
+        return $(".generated").slideDown();
+      });
     }
   };
 
@@ -134,7 +121,18 @@
       alert("請先塡好申請書");
       return;
     }
-    return report_generate(org, your_org, decision, action, product);
+    report_generate(org, your_org, decision, action, product);
+    $(".panel").slideUp();
+    return $(".in-progress").fadeIn().delay(5000).fadeOut(function() {
+      $(".generated").slideDown();
+      return reloadWithQueryStringVars({
+        "org": escape(org),
+        "your_org": escape(your_org),
+        "decision": escape(decision),
+        "action": escape(action),
+        "product": escape(product)
+      });
+    });
   };
 
   $('body .generate').on("click", prepare_for_reoprt_and_generate);
