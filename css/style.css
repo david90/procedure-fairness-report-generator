@@ -124,3 +124,8 @@ blockquote {
   padding: 20px;
 }
 
+@media (max-width : 480px) {
+  .container {
+    width: 320px;
+  }
+}
