@@ -116,6 +116,9 @@
     decision = $(".decision").val();
     action = $(".action").val();
     product = $(".product").val();
+    if (org.length === 0) {
+      org = "行會";
+    }
     if (your_org.length === 0 || decision.length === 0 || action.length === 0 || product.length === 0) {
       alert("請先填妥申請書");
       return;
