@@ -7,6 +7,7 @@
     existingQueryVars = (location.search ? location.search.substring(1).split("&") : []);
     currentUrl = (location.search ? location.href.replace(location.search, "") : location.href);
     newQueryVars = {};
+    currentUrl = currentUrl.substr(0, currentUrl.indexOf("#"));
     newUrl = currentUrl + "?";
     if (existingQueryVars.length > 0) {
       i = 0;
@@ -102,8 +103,8 @@
     action = getUrlVar("action");
     product = getUrlVar("product");
     if (org.length > 0 && your_org.length > 0 && decision.length > 0 && action.length > 0 && product.length > 0) {
+      $(".panel").hide();
       report_generate(org, your_org, decision, action, product);
-      $(".panel").slideUp();
       return $(".generated").slideDown();
     }
   };

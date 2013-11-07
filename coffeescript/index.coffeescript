@@ -2,6 +2,7 @@ reloadWithQueryStringVars = (queryStringVars) ->
   existingQueryVars = (if location.search then location.search.substring(1).split("&") else [])
   currentUrl = (if location.search then location.href.replace(location.search, "") else location.href)
   newQueryVars = {}
+  currentUrl = currentUrl.substr(0, currentUrl.indexOf("#"))
   newUrl = currentUrl + "?"
   if existingQueryVars.length > 0
     i = 0
@@ -217,8 +218,8 @@ load_from_url = () =>
   product = getUrlVar("product");
   
   if(org.length>0 && your_org.length>0 && decision.length>0 && action.length>0 && product.length>0)
+    $(".panel").hide();
     report_generate(org, your_org, decision, action, product)
-    $(".panel").slideUp();
     $(".generated").slideDown();
 
 prepare_for_reoprt_and_generate = () =>
@@ -236,6 +237,7 @@ prepare_for_reoprt_and_generate = () =>
     
   $(".panel").slideUp();
   $(".in-progress").fadeIn().delay(5000).fadeOut(()=>
+    #$(".generated").slideDown();
     reloadWithQueryStringVars({"org": escape(org), "your_org": escape(your_org), "decision": escape(decision), "action": escape(action), "product": escape(product)});
   );
 
