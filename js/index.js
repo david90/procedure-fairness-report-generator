@@ -26,7 +26,7 @@
       for (newQueryVar in newQueryVars) {
         newUrl += newQueryVar + "=" + newQueryVars[newQueryVar] + "&";
       }
-      newUrl = newUrl.substr(0, currentUrl.indexOf("#")).substring(0, newUrl.length - 1);
+      newUrl = newUrl.substring(0, newUrl.length - 1);
       return window.location.href = newUrl;
     } else {
       return window.location.href = location.href.substr(0, currentUrl.indexOf("#"));

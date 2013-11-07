@@ -17,7 +17,7 @@ reloadWithQueryStringVars = (queryStringVars) ->
   if newQueryVars
     for newQueryVar of newQueryVars
       newUrl += newQueryVar + "=" + newQueryVars[newQueryVar] + "&"
-    newUrl = newUrl.substr(0, currentUrl.indexOf("#")).substring(0, newUrl.length - 1)
+    newUrl = newUrl.substring(0, newUrl.length - 1)
     window.location.href = newUrl
   else
     window.location.href = location.href.substr(0, currentUrl.indexOf("#"))
