@@ -82,6 +82,14 @@ blockquote {
   display: inline-block;
 }
 
+.application-img {
+  width: 100%;
+  height: 200px;
+  background: url('  http://i.imgur.com/ZaH2gWd.jpg?1');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .result-img {
   width: 100%;
   height: 420px;
@@ -129,3 +137,4 @@ blockquote {
     width: 320px;
   }
 }
+
