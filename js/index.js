@@ -53,7 +53,7 @@
       s.push(cn[MM]);
     } else {
       if (MM < 20) {
-        s.push("十" + cn[MM % 10]);
+        s.push("十" + cn[MM % 9]);
       }
     }
     s.push("月");

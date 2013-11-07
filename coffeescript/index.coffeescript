@@ -38,7 +38,7 @@ ShowDate = (date) ->
   MM = date.getMonth()
   if MM < 10
     s.push cn[MM]
-  else s.push "十" + cn[MM % 10]  if MM < 20
+  else s.push "十" + cn[MM % 9]  if MM < 20
   s.push "月"
   DD = date.getDate()
   if DD < 10
