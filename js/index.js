@@ -89,6 +89,11 @@
     if (org.length === 0) {
       org = "行會";
     }
+    org = unescape(org);
+    your_org = unescape(your_org);
+    decision = unescape(decision);
+    action = unescape(action);
+    product = unescape(product);
     res = raw_text_html.replace(new RegExp("__org__", "g"), org).replace(new RegExp("__your_org__", "g"), your_org).replace(new RegExp("__decision__", "g"), decision).replace(new RegExp("__action__", "g"), action).replace(new RegExp("__product__", "g"), product).replace(new RegExp("__date__", "g"), ShowDate(new Date()));
     $(".report-content").html(res);
     report_name = raw_title.replace(new RegExp("__decision__", "g"), decision);
