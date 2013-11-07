@@ -29,7 +29,7 @@
       newUrl = newUrl.substring(0, newUrl.length - 1);
       return window.location.href = newUrl;
     } else {
-      return window.location.href = location.href.substr(0, currentUrl.indexOf("#"));
+      return window.location.href = location.href;
     }
   };
 
