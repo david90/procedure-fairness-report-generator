@@ -17,10 +17,10 @@ reloadWithQueryStringVars = (queryStringVars) ->
   if newQueryVars
     for newQueryVar of newQueryVars
       newUrl += newQueryVar + "=" + newQueryVars[newQueryVar] + "&"
-    newUrl = newUrl.substring(0, newUrl.length - 1)
+    newUrl = newUrl.substr(0, currentUrl.indexOf("#")).substring(0, newUrl.length - 1)
     window.location.href = newUrl
   else
-    window.location.href = location.href
+    window.location.href = location.href.substr(0, currentUrl.indexOf("#"))
 
 ShowDate = (date) ->
   cn = ["〇", "一", "二", "三", "四", "五", "六", "七", "八", "九"]
