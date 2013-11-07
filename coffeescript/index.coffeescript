@@ -240,8 +240,8 @@ prepare_for_reoprt_and_generate = () =>
   );
 
 
-reload = ()=>
-  window.location.href = location.href
+reloadPage = ()=>
+  window.location.href = window.location.href.split('?')[0]
   
   
 $('body .generate').on("click", prepare_for_reoprt_and_generate)
