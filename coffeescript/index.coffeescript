@@ -230,7 +230,7 @@ prepare_for_reoprt_and_generate = () =>
   product = $(".product").val()
 
   if(your_org.length==0 || decision.length==0 || action.length==0 || product.length==0)
-    alert("請先塡好申請書");
+    alert("請先填妥申請書");
     return;
   
   report_generate(org, your_org, decision, action, product)
