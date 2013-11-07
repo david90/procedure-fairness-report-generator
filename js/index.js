@@ -97,11 +97,11 @@
 
   load_from_url = function() {
     var action, decision, org, product, your_org;
-    org = getUrlVar("org");
-    your_org = getUrlVar("your_org");
-    decision = getUrlVar("decision");
-    action = getUrlVar("action");
-    product = getUrlVar("product");
+    org = unescape(getUrlVar("org"));
+    your_org = unescape(getUrlVar("your_org"));
+    decision = unescape(getUrlVar("decision"));
+    action = unescape(getUrlVar("action"));
+    product = unescape(getUrlVar("product"));
     if (org.length > 0 && your_org.length > 0 && decision.length > 0 && action.length > 0 && product.length > 0) {
       $(".panel").hide();
       report_generate(org, your_org, decision, action, product);
