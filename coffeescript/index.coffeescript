@@ -240,8 +240,12 @@ prepare_for_reoprt_and_generate = () =>
   );
 
 
-
+reload = ()=>
+  window.location.href = location.href
+  
+  
 $('body .generate').on("click", prepare_for_reoprt_and_generate)
+$('body .reload').on("click", reloadPage)
 $().ready(()=>
   load_from_url()
 )

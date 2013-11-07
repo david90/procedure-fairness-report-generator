@@ -1,5 +1,5 @@
 (function() {
-  var ShowDate, getUrlVar, load_from_url, prepare_for_reoprt_and_generate, raw_text_html, raw_title, reloadWithQueryStringVars, report_generate,
+  var ShowDate, getUrlVar, load_from_url, prepare_for_reoprt_and_generate, raw_text_html, raw_title, reload, reloadWithQueryStringVars, report_generate,
     _this = this;
 
   reloadWithQueryStringVars = function(queryStringVars) {
@@ -132,7 +132,13 @@
     });
   };
 
+  reload = function() {
+    return window.location.href = location.href;
+  };
+
   $('body .generate').on("click", prepare_for_reoprt_and_generate);
+
+  $('body .reload').on("click", reloadPage);
 
   $().ready(function() {
     return load_from_url();
