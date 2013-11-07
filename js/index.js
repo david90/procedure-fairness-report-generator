@@ -104,9 +104,7 @@
     if (org.length > 0 && your_org.length > 0 && decision.length > 0 && action.length > 0 && product.length > 0) {
       report_generate(org, your_org, decision, action, product);
       $(".panel").slideUp();
-      return $(".in-progress").fadeIn().delay(5000).fadeOut(function() {
-        return $(".generated").slideDown();
-      });
+      return $(".generated").slideDown();
     }
   };
 
@@ -124,7 +122,6 @@
     report_generate(org, your_org, decision, action, product);
     $(".panel").slideUp();
     return $(".in-progress").fadeIn().delay(5000).fadeOut(function() {
-      $(".generated").slideDown();
       return reloadWithQueryStringVars({
         "org": escape(org),
         "your_org": escape(your_org),
